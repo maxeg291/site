@@ -41,6 +41,15 @@
       <tr><td>165-175cм</td><td>L</td></tr>
       <tr><td>175-185cм</td><td>XL</td></tr>
     </table>
+    <?php 
+    error_reporting(0);
+    $mysql = new mysqli('localhost','root','','site');
+  if($_COOKIE['admin']==1): ?>
+    <p><a href="addmodel.php">Добавить модель</a></p>
+    <p><a href="deletemodel.php">Удалить модель</a></p>
+   <?php else: echo "";?>
+   <?php endif; 
+     $mysql->close();?>
 <?php
 $mysql = new mysqli('localhost','root','','site');
 $query ="SELECT `photo`,`name` FROM `catalog`";
@@ -59,14 +68,5 @@ if($result)
     mysqli_close($mysql);
 		?>
 		</div>
-  <?php 
-    error_reporting(0);
-    $mysql = new mysqli('localhost','root','','site');
-	if($_COOKIE['admin']==1): ?>
-    <p><a href="addmodel.php">Добавить модель</a></p>
-	  <p><a href="deletemodel.php">Удалить модель</a></p>
-   <?php else: echo "";?>
-   <?php endif; 
-	   $mysql->close();?>
  </body>
 </html>

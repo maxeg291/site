@@ -18,19 +18,46 @@
 	</div>
 	<h1 align="center"> Life </h1>
 	<div class="menu" align=center>
-   		<p> <?php if($_COOKIE['user']==''): ?>
+   		<?php if($_COOKIE['login']==''): ?>
    			<a href="auth.php" style="padding: 10px 5% 10px;">Зарегистрироваться/Войти</a>
+   			<?php elseif(($_COOKIE['login']!='') && ($_COOKIE['admin']==1)): ?>
+   				<div width="20px"> Вы зашли под именем <?=$_COOKIE['login']?> как администратор. <a href="exit.php"> Выйти </a></div>
    			<?php else: ?>
-   				<p> Вы зашли под именем <?=$_COOKIE['user']?>. <a href="exit.php"> Выйти </a></p>
+   				<div width="20px"> Вы зашли под именем <?=$_COOKIE['login']?>. <a href="exit.php"> Выйти </a></div>
    		<?php endif; ?>
        	<a href="life.php" style="padding: 10px 5% 10px;">Life</a> 
 	   	<a href="catalog.php" style="padding: 10px 5% 10px;"> Модели и размеры </a>
 	   	<a href="feedback.php" style="padding: 10px 5% 10px;"> Отзывы </a>
 	   	<a href="order.php" style="padding: 10px 5% 10px;"> Оформить заказ</a>
-	   	<a href="tips.php" style="padding: 10px 5% 10px;"> Советы </a></p>
   	</div>
 	<div class="content">
-		<p>Здесь публикуются новости магазина</p>
+		<h2>Здесь Вы сможете больше узнать о жизни нашего магазина</h2>
+		<?php if($_COOKIE['admin']==1):?>
+			 <form action="addnews.php" method="POST" enctype="multipart/form-data" align="center">
+			<p> Заголовок новости:<input type='text' name='newsheader'></p>
+   			<label for="newstext">Текст новости:</label>
+   			<textarea name="newstext" cols="80" rows="7"  required></textarea>
+   			<p>Фото: <input type="file" name="photo"></p>
+   			<input type="submit" value="Добавить новость">
+   			</form>
+			<div align=center><a href='deletenews.php'>Удалить новость</a></div>
+		<?php endif; ?>
+		<?php
+  
+  $mysql = new mysqli('localhost','root','','site');
+  $query ="SELECT `photo`,`newstext` FROM `news`";
+ 
+  $result = mysqli_query($mysql, $query); 
+  if($result)
+   $rows = "";
+    while($rows = $result->fetch_assoc()){
+		echo $rows["newsheader"];
+		echo $rows["newstext"]."<br/>";
+		echo $rows["photo"];				
+	}
+    mysqli_free_result($result);
+mysqli_close($mysql);
+?>
 	</div>
 </body>
 </html>

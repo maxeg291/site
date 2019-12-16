@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <title> Kengurumi </title>
-  
+  <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>

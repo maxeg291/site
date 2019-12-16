@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <title> Kengurumi </title>
-  
+  <link rel="stylesheet" href="catalogstyle.css">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -32,7 +32,7 @@
       <a href="feedback.php" style="padding: 10px 5% 10px;"> Отзывы </a>
       <a href="order.php" style="padding: 10px 5% 10px;"> Оформить заказ</a>
     </div>
-  <div class="main">
+  <div class="content">
     <?php 
      error_reporting(0);
      if($_COOKIE['login'] == ''):
@@ -41,7 +41,7 @@
     <?php elseif(($_COOKIE['login']!='')&&($_COOKIE['admin']!=1)): ?>
   <h3> Таблица размеров </h3>
     <table style="text-align:center;">
-      <tr><td>Рост</td><td>Размер</td></tr>
+      <tr><td style="color:red">Рост</td><td style="color:red">Размер</td></tr>
       <tr><td>125-135cм</td><td>XXS (7-10 лет)</td></tr>
       <tr><td>135-145cм</td><td>XS (11-13 лет)</td></tr>
       <tr><td>145-155cм</td><td>S</td></tr>

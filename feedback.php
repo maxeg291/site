@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <title> Kengurumi </title>
-  
+  <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -32,7 +32,7 @@
       <a href="feedback.php" style="padding: 10px 5% 10px;"> Отзывы </a>
       <a href="order.php" style="padding: 10px 5% 10px;"> Оформить заказ</a>
     </div>
-
+    <div class="content">
   	 
   	<?php
   $comment = filter_var(trim($_POST['comment']),
@@ -62,15 +62,13 @@ mysqli_close($mysql);
      error_reporting(0);
      if($_COOKIE['login'] == ''):
      ?>
-   <h3 style="color:red;"><a href="auth.php" style="color:#81BEF7;">Войдите</a> или <a href="reg.php" style="color:#81BEF7;">зарегистрируйтесь</a>, чтобы оставить отзыв!</p>
+   <h3 style="color:red;"><a href="auth.php" style="color:#81BEF7;">Войдите</a> или <a href="reg.php" style="color:#81BEF7;">зарегистрируйтесь</a>, чтобы оставить отзыв!</h3>
     <?php else: ?>
    <form action="feedbackscript.php" method="POST"  align=center>
    <label for="comment">Ваш отзыв:</label>
    <textarea name="comment" cols="60" rows="5"  required></textarea>
    <input type="submit" value="Оставить отзыв">
    </form>
-  </div>
-  <div class="footer" align=center>
   
   <?php 
     error_reporting(0);
@@ -83,7 +81,7 @@ mysqli_close($mysql);
    <?php else: ?>
       <?php endif; 
 	   $mysql->close();?> 
-  </div>
   <?php endif; ?>
+  </div>
  </body>
 </html>

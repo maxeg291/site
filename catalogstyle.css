@@ -1,0 +1,10 @@
+*{
+	font-family:segoe print;
+}
+.content{
+	background-color:#FFFACD;
+}
+table, td {
+	border:1px solid black;
+	border-collapse:collapse;
+}

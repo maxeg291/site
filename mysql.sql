@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS 'news' (
  'date' date NOT NULL);
  
 CREATE TABLE IF NOT EXISTS 'orders' (
+ 'id' int(11) NOT NULL AUTO_INCREMENT,
  'model' varchar(20) NOT NULL,
  'size' varchar(3) NOT NULL,
  'email' varchar(30) NOT NULL,

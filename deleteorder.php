@@ -18,7 +18,7 @@
   <div style="margin-left:475px;" >
     <pre style="font-size:15px;font-family:arial;"> Мы в Instagram             Мы во Вконтакте                             Позвонить нам</pre>
   </div>
-  <h1 style="text-align:center;font-size:50px;color:red;font-family:segoe print;"> Модели и размеры </h1>
+  <h1 style="text-align:center;font-size:50px;color:red;font-family:segoe print;"> Оформить заказ </h1>
   <div class="menu" align=center style="background-color:pink;width:100%;height:15%;margin-left:0px;font-size:20px;">
       <?php if($_COOKIE['login']==''): ?>
         <a href="auth.php" style="padding: 10px 5% 10px;">Зарегистрироваться/Войти</a>
@@ -32,11 +32,9 @@
       <a href="feedback.php" style="padding: 10px 5% 10px;"> Отзывы </a>
       <a href="order.php" style="padding: 10px 5% 10px;"> Оформить заказ</a>
     </div>
-  <div class="main" style="text-align:center">
-   <form action="deletemodelscript.php" method="POST">
-    <p>Название удаляемой модели: <input type="text" name="name" required></p>
-    <input type="submit" value="Удалить">
-   </form> 
-  </div>
+    <form action="deleteorderscript.php" method="POST" align='center'>
+    <p>ID удаляемого заказа:<input type="text" name="id" required></p>
+   <input type="submit" value="Удалить">
+   </form>
  </body>
 </html>

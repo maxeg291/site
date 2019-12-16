@@ -4,7 +4,7 @@
  $password = filter_var(trim($_POST['password']),
  FILTER_SANITIZE_STRING);
 
- $mysql = new mysqli('localhost','root','','registersite');
+ $mysql = new mysqli('localhost','root','','site');
  
  $result = $mysql->query("SELECT * FROM `users` WHERE `login`='$login' AND `password`='$password'");
  $user = $result->fetch_assoc();
@@ -14,11 +14,9 @@
 	 echo '<p><a href="auth.php">'."Повторить попытку".'</a></p>';
 	 exit();
  } 
-  
- setcookie('user', $user['name'], time() + 28800, "/");
+ setcookie('email', $user['email'], time() + 28800, "/");
  setcookie('login', $user['login'], time() + 28800, "/");
  setcookie('admin', $user['admin'], time() + 28800, "/");
- 
  $mysql->close();
  header('Location:life.php');
 ?>

@@ -1,8 +1,8 @@
 <html>
  <head>
   <meta charset="utf-8">
-  <title> Вход </title>
-  <link rel="stylesheet" href="authstyle.css">
+  <title> Авторизация </title>
+
  </head>
  <body>
   <div class="header">

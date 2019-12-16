@@ -2,7 +2,7 @@
  <head>
   <meta charset="utf-8">
   <title> Регистрация </title>
-  <link rel="stylesheet" href="authstyle.css">
+
  </head>
  <body>
   <div class="header">
